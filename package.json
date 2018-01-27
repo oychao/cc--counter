@@ -1,0 +1,14 @@
+{
+  "name": "words",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ouyang Chao <chao@ouyang.io>",
+  "license": "WTFPL",
+  "scripts": {
+    "inst": "npm i -g",
+    "start": "node index"
+  },
+  "bin": {
+    "ws": "./index.js"
+  }
+}
