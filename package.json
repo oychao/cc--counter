@@ -1,12 +1,12 @@
 {
-  "name": "test",
+  "name": "cc-counter",
   "version": "1.0.0",
   "main": "./bin/bundle.js",
-  "author": "Your name <your@email.address>",
+  "author": "ouyang-chap <chao@ouyang.io>",
   "license": "MIT",
-  "repository": "your/github/repository",
+  "repository": "https://github.com/oychao/cc-counter",
   "keywords": [],
-  "description": "a cli tool",
+  "description": "a cli tool for counting Chinese characters",
   "preferGlobal": true,
   "bin": {
     "ccc": "./bin/bundle.js"
