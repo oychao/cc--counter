@@ -29,28 +29,33 @@ program
 
 const scaler = {};
 
+const blackList = ['.DS_Store'];
+
 fs.readdir('./', (err, files) => {
   files.forEach(file => {
-    if (!fs.lstatSync(file).isDirectory()) {
+    if (!fs.lstatSync(file).isDirectory() && blackList.indexOf(file) === -1) {
       const result = fs.readFileSync(file, 'utf-8');
       scaler[file] = countChar(result);
     }
   });
 
+  process.stdout.write(
+    `#\t全部\t字数\t标点:\t文件名\n`
+  );
   const result = Object.keys(scaler).reduce(
-    (acc, key) => {
+    (acc, key, idx) => {
       const { zh, punc } = scaler[key];
       const all = zh + punc;
       acc.zh += zh;
       acc.punc += punc;
       acc.all += all;
       process.stdout.write(
-        `文件:${key} - 字数:${zh}, 标点:${punc}, 全部:${all}\n`
+        `${idx + 1}\t${all}\t${zh}\t${punc}\t${key}\n`
       );
       return acc;
     },
     { zh: 0, punc: 0, all: 0 }
   );
   const { zh, punc, all } = result;
-  process.stdout.write(`总计 - 字数:${zh}, 标点:${punc}, 全部:${all}\n`);
+  process.stdout.write(`/\t${all}\t${zh}\t${punc}\t总计\n`);
 });

@@ -4,7 +4,7 @@ const check = {
     return val => typeof val === 'string' && HanZiReg.test(val);
   })(),
   punc: (function() {
-    const PuncReg = /[,\./;:\*'\[\]\{\}\(\)\!\?（）【】“”‘’，。；：！？]/;
+    const PuncReg = /[,\./;:\*'\[\]\{\}\(\)\!\?（）【】“”‘’，。；：！？…]/;
     return val => typeof val === 'string' && PuncReg.test(val);
   })()
 };
