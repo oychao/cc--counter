@@ -41,10 +41,10 @@ fs.readdir('./', (err, files) => {
 
   const d = new Date();
   process.stdout.write(
-    chalk.bgGreen(
-      `cc-counter: ${d.getFullYear()}-${d.getMonth() +
+    `cc-count at: ${chalk.green(
+      `${d.getFullYear()}-${d.getMonth() +
         1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}\n`
-    )
+    )}`
   );
 
   process.stdout.write(`#\t全部\t字数\t标点:\t文件名\n`);
