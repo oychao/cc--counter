@@ -39,9 +39,15 @@ fs.readdir('./', (err, files) => {
     }
   });
 
+  const d = new Date();
   process.stdout.write(
-    `#\t全部\t字数\t标点:\t文件名\n`
+    chalk.bgGreen(
+      `cc-counter: ${d.getFullYear()}-${d.getMonth() +
+        1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}\n`
+    )
   );
+
+  process.stdout.write(`#\t全部\t字数\t标点:\t文件名\n`);
   const result = Object.keys(scaler).reduce(
     (acc, key, idx) => {
       const { zh, punc } = scaler[key];
@@ -49,9 +55,7 @@ fs.readdir('./', (err, files) => {
       acc.zh += zh;
       acc.punc += punc;
       acc.all += all;
-      process.stdout.write(
-        `${idx + 1}\t${all}\t${zh}\t${punc}\t${key}\n`
-      );
+      process.stdout.write(`${idx + 1}\t${all}\t${zh}\t${punc}\t${key}\n`);
       return acc;
     },
     { zh: 0, punc: 0, all: 0 }
